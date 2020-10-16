@@ -1,0 +1,19 @@
+{
+  "name": "js-api-abas",
+  "version": "1.0.0",
+  "description": "Api express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafaelrabelos/js-api-abas.git"
+  },
+  "author": "Rafael Rabelo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafaelrabelos/js-api-abas/issues"
+  },
+  "homepage": "https://github.com/rafaelrabelos/js-api-abas#readme"
+}

@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "commonjs",
+    "allowJs": true,
+    //"strict": true,                           /* Enable all strict type-checking options. */
+
+    /* Module Resolution Options */
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "@root/*":["*"],
+      "@src/*": ["src/*"],
+      "@app/*": ["src/application/*"],
+      "@presentation/*": ["src/presentation/*"],
+      "@infra/*": ["src/infra/*"],
+      "@domain/*": ["src/domain/*"],
+      "@environment/*": ["environments/*"],
+      "@models/*": ["src/domain/models/*"],
+      "*": ["node_modules/*"]
+    },
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "outDir": "dist"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["src/client"]
+}
