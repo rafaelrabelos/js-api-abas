@@ -4,7 +4,7 @@ import { VendasRespository } from '@infra/data/repository/VendasRespository';
 export class VendasService {
   constructor() {}
 
-  async CreateVendas(req: Request, res: Response, next: NextFunction) {
+  async CreateVenda(req: Request, res: Response, next: NextFunction) {
     
     const vendasRepository = new VendasRespository();
 
