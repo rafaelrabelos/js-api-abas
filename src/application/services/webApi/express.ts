@@ -1,9 +1,15 @@
 import  express from 'express';
 import expressPino from 'express-pino-logger';
 import { logger, clearPath } from '@app/middlewares';
+import { RoutersModel } from '@domain/models/index';
 
 export class WebApi {
-  constructor() {}
+
+  routers: RoutersModel[];
+
+  constructor(routers: RoutersModel[]) {
+    this.routers = routers;
+  }
 
   Run() {
     const app = express();
@@ -18,8 +24,13 @@ export class WebApi {
     app.use(express.json());
     app.use(clearPath)
 
-    app.get(`${prefixApi}/v1/vendas`, (req, res) => { res.send('Hello World!') });
+    this.routers.forEach((router) => {
+      const path = prefixApi + router.Version + router.Prefix;
+      const apiBaseUrl = hostname + ':' + port + path;
 
+      app.use(path, router.Routes);
+      logger.info(router.Routes.stack.map((r) => apiBaseUrl + r.route.path))
+    });
     app.listen(port, () => {
       logger.info(`server started at ${hostname}:${port}`)
     });
