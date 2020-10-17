@@ -1,4 +1,6 @@
 import  express from 'express';
+import expressPino from 'express-pino-logger';
+import { logger } from '@app/middlewares';
 
 export class WebApi {
   constructor() {}
@@ -6,15 +8,18 @@ export class WebApi {
   Run() {
     const app = express();
     const os = require('os');
+    const expressLogger = expressPino({ logger });
 
     const hostname = os.hostname();
     const port = process.env.PORT || 8086;
     const prefixApi = '/api';
 
+    app.use(expressLogger);
+
     app.get(`${prefixApi}/v1/vendas`, (req, res) => { res.send('Hello World!') });
 
     app.listen(port, () => {
-      console.log(`server started at ${hostname}:${port}`)
+      logger.info(`server started at ${hostname}:${port}`)
     });
   }
 }
