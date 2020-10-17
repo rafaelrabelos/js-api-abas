@@ -1,6 +1,6 @@
 import  express from 'express';
 import expressPino from 'express-pino-logger';
-import { logger } from '@app/middlewares';
+import { logger, clearPath } from '@app/middlewares';
 
 export class WebApi {
   constructor() {}
@@ -15,6 +15,8 @@ export class WebApi {
     const prefixApi = '/api';
 
     app.use(expressLogger);
+    app.use(express.json());
+    app.use(clearPath)
 
     app.get(`${prefixApi}/v1/vendas`, (req, res) => { res.send('Hello World!') });
 
