@@ -8,9 +8,10 @@ export class WebApi {
     const os = require('os');
 
     const hostname = os.hostname();
-    const port = 8086;
-    
-    app.get('/api/v1/vendas', (req, res) => { res.send('Hello World!') });
+    const port = process.env.PORT || 8086;
+    const prefixApi = '/api';
+
+    app.get(`${prefixApi}/v1/vendas`, (req, res) => { res.send('Hello World!') });
 
     app.listen(port, () => {
       console.log(`server started at ${hostname}:${port}`)

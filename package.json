@@ -25,6 +25,7 @@
   "homepage": "https://github.com/rafaelrabelos/js-api-abas#readme",
   "dependencies": {
     "nodemon": "^2.0.4",
+    "dotenv": "^8.2.0",
     "module-alias": "^2.2.2",
     "express": "^4.17.1",
     "ts-node": "^8.10.2",
