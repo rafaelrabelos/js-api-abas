@@ -1,14 +1,16 @@
-import { MongoClient } from '@infra/data/configuration/mongoClient';
+import { VendasModel } from './schemas/vendas/Vendas.Schema';
+import * as VendasTypes from './schemas/vendas/Vendas.Types'
+import { ObjectID } from "mongodb";
 
 export class VendasRespository {
   constructor() {}
 
-  async CreateVenda(): Promise<string> {
+  async GetVendas() : Promise<VendasTypes.IVendasDocument[]>{
+    return VendasModel.find().populate({ path: 'vendedor_id', select: '_id nome email'})
+  }
 
-    let db = new MongoClient();
+  async CreateVenda(venda: VendasTypes.IVendasDocument): Promise<VendasTypes.IVendasDocument> {
 
-    return db.ConnectDB()
-    .then( (res) => res)
-    .catch( (err) => err);
+    return VendasModel.create(venda);
   }
 }

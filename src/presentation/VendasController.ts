@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { RoutersModel } from '@domain/models/index';
-import { VendasService } from '@app/services/VendasService';
+import { VendasService } from '@app/services';
 
 const router = Router({
   strict: false,
@@ -8,7 +8,8 @@ const router = Router({
 
 const vendasServicce = new VendasService();
 
-router.get('/', vendasServicce.CreateVenda)
+router.get('/', vendasServicce.GetVendas)
+router.post('/', vendasServicce.CreateVenda)
 
 const vendasRouter: RoutersModel = {
   Version: '/v1',
