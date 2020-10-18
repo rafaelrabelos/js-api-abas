@@ -1,3 +1,4 @@
-import {VendasControllers}  from './VendasController';
+import { VendasControllers }  from './VendasController';
+import { VendedorControllers } from './VendedorController';
 
-export { VendasControllers };
+export { VendasControllers, VendedorControllers };

@@ -1,6 +1,6 @@
 import { WebApi } from './services/webApi/express';
 import { MongoClient } from '@infra/data/configuration/mongoClient';
-import { VendasControllers } from '@src/presentation';
+import { VendasControllers, VendedorControllers } from '@src/presentation';
 import dotenv from 'dotenv';
 
 export class Application {
@@ -10,7 +10,10 @@ export class Application {
     }
 
     RunAppServices() {
-        const application = new WebApi([VendasControllers]);
+        const application = new WebApi([
+            VendasControllers,
+            VendedorControllers
+        ]);
         application.Run();
     }
 

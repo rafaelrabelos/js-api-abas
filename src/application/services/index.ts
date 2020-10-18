@@ -1,3 +1,4 @@
 import { VendasService } from './VendasService';
+import { VendedorService } from './VendedorService';
 
-export { VendasService };
+export { VendasService, VendedorService };
