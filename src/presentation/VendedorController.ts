@@ -10,6 +10,7 @@ const vendedorServicce = new VendedorService();
 
 router.get('/', vendedorServicce.GetVendedores)
 router.post('/', vendedorServicce.CreateVendedor)
+router.get('/ranking/semanal', vendedorServicce.ObtemRankingDaSemana)
 
 const vendedorRouter: RoutersModel = {
   Version: '/v1',
